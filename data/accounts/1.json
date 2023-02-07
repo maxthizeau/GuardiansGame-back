@@ -1,4 +1,9 @@
 {
-  "twitchId": "ELKJELJKE",
-  "serializedState": "{state:{money:3000}"
+  "twitchId": "1",
+  "serializedState": "{state:{money:3000}",
+  "gameVersion": {
+    "major": 0,
+    "minor": 1
+  },
+  "date": 1675772278000
 }
