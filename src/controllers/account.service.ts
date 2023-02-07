@@ -6,7 +6,7 @@ import type { Account } from "../types/account"
 import { BadRequestException, NotFoundException } from "../utils/exceptions"
 
 // export const readFileAsync = promisify(fs.readFile)
-const dataPath = path.resolve(__dirname, "data", "accounts")
+const dataPath = path.join(__dirname, "../../", "data", "accounts")
 
 /**
  *
@@ -34,7 +34,7 @@ export class AccountService {
    * @param id - unique twitchId of the account
    */
   getAccount(id: number | string): Account | undefined {
-    const accountFilePath = path.resolve(dataPath, `${id.toString()}.json`)
+    const accountFilePath = path.join(dataPath, `${id.toString()}.json`)
     console.log("DEBUG : Path : ", accountFilePath)
 
     if (existsSync(accountFilePath)) {
@@ -49,7 +49,7 @@ export class AccountService {
    * @param account - The data to save in file
    */
   saveAccount(account: Account) {
-    const accountFilePath = path.resolve(dataPath, `${account.twitchId}.json`)
+    const accountFilePath = path.join(dataPath, `${account.twitchId}.json`)
     writeFileSync(accountFilePath, JSON.stringify({ ...account, date: Date.now() }))
   }
 
