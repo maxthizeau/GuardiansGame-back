@@ -35,7 +35,7 @@ export class AccountService {
    */
   getAccount(id: number | string): Account | undefined {
     const accountFilePath = path.join(dataPath, `${id.toString()}.json`)
-    console.log("DEBUG : Path : ", accountFilePath)
+    // console.log("DEBUG : Path : ", accountFilePath)
 
     if (existsSync(accountFilePath)) {
       const content = jsonToAccount(readFileSync(accountFilePath, "utf8"))

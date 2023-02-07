@@ -8,10 +8,11 @@ import { ParsedUrlQuery } from "querystring"
 const parseQuery = (body: any): Account | undefined => {
   let account: Account | undefined
   try {
+    // console.log(body)
     if (body["twitchId"] && body["serializedState"] && body["gameVersion"])
       account = {
         twitchId: body["twitchId"].toString(),
-        serializedState: JSON.stringify(body["serializedState"]),
+        serializedState: body["serializedState"].toString(),
         // gameVersion: lastGameVersion,
         gameVersion: body["gameVersion"],
       }
@@ -32,7 +33,7 @@ const parsePartialQuery = (body: any): Partial<Account> | undefined => {
       account.twitchId = body["twitchId"].toString()
     }
     if (body["serializedState"]) {
-      account.serializedState = JSON.stringify(body["serializedState"])
+      account.serializedState = body["serializedState"].toString()
     }
     if (body["gameVersion"]) {
       account.gameVersion = body["gameVersion"]
