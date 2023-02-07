@@ -1,5 +1,11 @@
 .env
 data/accounts/*
+#Firebase
+.firebase
+functions
+.firebaserc
+firebase.json
+
 # Logs
 logs
 *.log
