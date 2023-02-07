@@ -1,5 +1,5 @@
 .env
-data/accounts/*
+# data/accounts/*
 #Firebase
 .firebase
 functions

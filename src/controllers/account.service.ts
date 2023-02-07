@@ -6,7 +6,7 @@ import type { Account } from "../types/account"
 import { BadRequestException, NotFoundException } from "../utils/exceptions"
 
 // export const readFileAsync = promisify(fs.readFile)
-const dataPath = path.resolve("data", "accounts")
+const dataPath = path.resolve(__dirname, "data", "accounts")
 
 /**
  *
@@ -35,6 +35,7 @@ export class AccountService {
    */
   getAccount(id: number | string): Account | undefined {
     const accountFilePath = path.resolve(dataPath, `${id.toString()}.json`)
+    console.log("DEBUG : Path : ", accountFilePath)
 
     if (existsSync(accountFilePath)) {
       const content = jsonToAccount(readFileSync(accountFilePath, "utf8"))
