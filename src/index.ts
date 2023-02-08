@@ -7,13 +7,14 @@ import { AccountController } from "./controllers/account.controller"
 import { CredentialHandler } from "./middlewares/credential.handler"
 import { NextFunction } from "express"
 import { NotAuthorizedException } from "./utils/exceptions"
+import { corsOptions } from "./utils/corsOptions"
 
 dotenv.config()
 
 const app: Express = express()
 const port = process.env.PORT
 
-app.use(cors())
+app.use(cors(corsOptions))
 
 app.use(CredentialHandler)
 app.use(express.json())

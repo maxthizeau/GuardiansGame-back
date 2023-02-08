@@ -71,5 +71,6 @@ This is NOT prod ready.
 
 Still need to :
 
+- Add some encryption for AUTH_KEY. Atm, you can find it by listening frontend request so it's useless right now. Cors has been enabled for frontend but it is still not enough.
 - When parsing file's content, verify that it's a valid Account object, and handle the error when it's not
 - Add unit test / integration test
